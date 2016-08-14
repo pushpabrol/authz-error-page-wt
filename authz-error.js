@@ -17,7 +17,8 @@ module.exports = function(context, req, res) {
   });
   res.end(ejs.render(hereDoc(authzErrorForm), {
     title: 'Authorization Error',
-    email: context.data.email ? context.data.email : ''
+    email: context.data.email ? context.data.email : '',
+    message: context.data.message ? context.data.message : ''
   }));
 };
 
@@ -43,6 +44,7 @@ function authzErrorForm() {
         <div class="jumbotron">
           <h1><%-title %></h1>
           <p><%-email %> You are not authorized to access this application.</p>
+          <p><%-message %></p>
 
         </div>
       </div>
